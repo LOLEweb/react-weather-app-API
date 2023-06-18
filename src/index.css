@@ -112,6 +112,18 @@ main {
   margin-bottom: 20px;
 }
 
+.author {
+  text-align: center;
+  margin-top: 20px;
+  color: #ffffff;
+  font-size: 20px;
+}
+
+.author__link {
+  text-decoration: none;
+  color: aqua;
+}
+
 
 
 

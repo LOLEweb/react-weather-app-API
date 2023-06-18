@@ -66,6 +66,7 @@ function App() {
             </div>
           </div>
           ) : ('')}
+          <p className="author">Created by <a className="author__link" href="https://vk.com/kushakov3">diziSXD</a>(click)</p>
       </main>
     </div>
   );
