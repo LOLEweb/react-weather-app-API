@@ -1,4 +1,6 @@
 import React, {useState} from "react";
+import OptionsWeather from "./components/OptionsWeather";
+import {useTranslation} from "react-i18next";
 const api = {
   key: "ad786bf1b61bcc222d1c4b84818ade36",
   base: "https://api.openweathermap.org/data/2.5/"
@@ -7,6 +9,12 @@ const api = {
 function App() {
   const [query, setQuery] = useState('');
   const [weather, setWeather] = useState({});
+
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = (language) => {
+    i18n.changeLanguage(language);
+  };
 
   const search = evt => {
     if (evt.key === "Enter") {
@@ -41,11 +49,15 @@ function App() {
           <input
               type="text"
               className="search-bar"
-              placeholder="Search..."
+              placeholder={t("search")}
               onChange={e => setQuery(e.target.value)}
               value={query}
               onKeyPress={search}
           />
+          <div className="translate">
+            <button className="ru-transl" onClick={() => changeLanguage("ru")}>RUS</button>
+            <button className="eng-transl" onClick={() => changeLanguage("en")}>ENG</button>
+          </div>
         </div>
         {(typeof weather.main != "undefined") ? (
           <div>
@@ -63,10 +75,16 @@ function App() {
                 <div className="temp-max">Max {Math.round(weather.main.temp_max)}°c</div>
               </div>
               <div className="weather">{weather.weather[0].main}</div>
+              <div className="options-weather">
+               <OptionsWeather title={t("Wind speed")} option={weather.wind.speed} valueSetting='m/s' />
+                <OptionsWeather title={t("Feels")} option={Math.round(weather.main.feels_like)} valueSetting='°c' />
+                <OptionsWeather title={t("Pressure")} option={weather.main.pressure} valueSetting='hPa' />
+                <OptionsWeather title={t("Humidity")} option={weather.main.humidity} valueSetting='%' />
+              </div>
             </div>
           </div>
           ) : ('')}
-          <p className="author">Created by <a className="author__link" href="https://vk.com/kushakov3">diziSXD</a>(click)</p>
+          <p className="author">{t("created")} <a className="author__link" href="https://vk.com/kushakov3">diziSXD</a>({t("click")})</p>
       </main>
     </div>
   );

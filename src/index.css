@@ -96,6 +96,7 @@ main {
 .weather-box .weather {
   color: #fff;
   font-size: 48px;
+  margin-bottom: 10px;
   font-weight: 700;
   text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
 }
@@ -122,6 +123,53 @@ main {
 .author__link {
   text-decoration: none;
   color: aqua;
+}
+
+.options-weather {
+  color: #fff;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.option-card {
+  font-weight: 700;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 20px 0;
+  border-radius: 5px;
+}
+
+.option-setting {
+  padding-top: 5px;
+  display: block;
+}
+
+.translate {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.ru-transl {
+  font-weight: 500;
+  color: #fff;
+  border: none;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 3px 3px 6px rgba(50, 50, 70, 0.5);
+}
+
+.eng-transl {
+  color: #fff;
+  font-weight: 500;
+  border: none;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 3px 3px 6px rgba(50, 50, 70, 0.5);
 }
 
 
